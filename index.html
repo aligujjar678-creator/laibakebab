@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laiba Kebab - Mercado del Puerto, Las Palmas</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#D62828',
+orangeBrand: '#F77F00',
+yellowBrand: '#FCBF49',
+creamBrand: '#FFF8F0',
+darkBrand: '#1B1B1B',
+},
+fontFamily: {
+sans: ['Poppins', 'sans-serif'],
+serif: ['Playfair Display', 'serif'],
+}
+}
+}
+}
+</script>
+<!-- Google Fonts & FontAwesome -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-creamBrand text-darkBrand font-sans antialiased selection:bg-primary selection:text-white">
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 w-full bg-darkBrand/90 backdrop-blur-md z-50 flex justify-between items-center px-6 lg:px-12 py-4 shadow-lg text-white">
+<a href="#home" class="flex items-center gap-3">
+<svg class="w-10 h-10 animate-pulse" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 10C50 10 30 40 30 65C30 76.0457 38.9543 85 50 85C61.0457 85 70 76.0457 70 65C70 40 50 10 50 10Z" fill="#D62828"/>
+<path d="M50 25C50 25 38 48 38 65C38 71.6274 43.3726 77 50 77C56.6274 77 62 71.6274 62 65C62 48 50 25 50 25Z" fill="#F77F00"/>
+<rect x="47" y="15" width="6" height="75" rx="3" fill="#FCBF49"/>
+</svg>
+<span class="font-serif text-2xl font-bold">Laiba Kebab</span>
+</a>
+<div class="hidden md:flex items-center gap-8 font-medium">
+<a href="#home" class="hover:text-yellowBrand transition" data-key="nav_home">Inicio</a>
+<a href="#menu" class="hover:text-yellowBrand transition" data-key="nav_menu">Menú</a>
+<a href="#order" class="hover:text-yellowBrand transition" data-key="nav_order">Pedir Online</a>
+<a href="#contact" class="hover:text-yellowBrand transition" data-key="nav_contact">Contacto</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-2 bg-white/10 px-3 py-1 rounded-full text-sm font-semibold">
+<button onclick="setLang('es')" id="btnEs" class="opacity-100">🇪🇸 ES</button>
+<span>|</span>
+<button onclick="setLang('en')" id="btnEn" class="opacity-60">🇬🇧 EN</button>
+</div>
+<a href="#order" class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-full font-semibold shadow-md transition flex items-center gap-2">
+<i class="fa-solid fa-cart-shopping"></i> <span id="cartCountBadge" class="bg-yellowBrand text-darkBrand px-2 py-0.5 rounded-full text-xs font-bold">0</span>
+</a>
+</div>
+</nav>
+<!-- Hero Section -->
+<header id="home" class="relative h-screen min-h-[600px] bg-[url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center flex items-center justify-center text-center px-6">
+<div class="absolute inset-0 bg-darkBrand/80"></div>
+<div class="relative z-10 max-w-3xl mt-12">
+<div class="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500 text-emerald-400 px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm">
+<span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping"></span>
+<span data-key="open_now">Abierto hoy 12:00 - 00:00 (Mercado del Puerto)</span>
+</div>
+<h1 class="text-4xl sm:text-6xl font-serif text-white font-extrabold mb-6 leading-tight" data-key="hero_title">El mejor Kebab de Las Palmas</h1>
+<p class="text-lg sm:text-xl text-creamBrand/90 mb-10 max-w-2xl mx-auto" data-key="hero_desc">Carne jugosa, salsas caseras y verduras frescas cada día en el corazón del Mercado del Puerto.</p>
+<div class="flex justify-center gap-4 flex-wrap">
+<a href="#menu" class="bg-gradient-to-r from-primary to-orangeBrand text-white px-8 py-3.5 rounded-full font-semibold shadow-lg hover:scale-105 transition" data-key="view_menu">Ver Menú</a>
+<a href="#order" class="bg-white text-darkBrand px-8 py-3.5 rounded-full font-semibold hover:bg-creamBrand transition" data-key="order_now">Pedir Online</a>
+</div>
+</div>
+</header>
+<!-- Highlights Strip -->
+<div class="bg-darkBrand text-white py-8 px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center border-b-4 border-primary">
+<div>
+<h3 class="text-3xl font-serif text-yellowBrand font-bold mb-1">4.8 ★</h3>
+<p class="text-sm opacity-80" data-key="rating_text">4.8 Estrellas en Google (134+ reseñas)</p>
+</div>
+<div>
+<h3 class="text-3xl font-serif text-yellowBrand font-bold mb-1">100%</h3>
+<p class="text-sm opacity-80" data-key="fresh_daily">Ingredientes frescos cada día</p>
+</div>
+<div>
+<h3 class="text-3xl font-serif text-yellowBrand font-bold mb-1">Halal</h3>
+<p class="text-sm opacity-80" data-key="halal_style">Estilo Halal de calidad</p>
+</div>
+<div>
+<h3 class="text-3xl font-serif text-yellowBrand font-bold mb-1">< 15 min</h3>
+<p class="text-sm opacity-80" data-key="fast_service">Servicio rápido y cercano</p>
+</div>
+</div>
+<!-- Menu Section -->
+<section id="menu" class="py-20 px-6 lg:px-12 max-w-7xl mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-12">
+<h2 class="text-3xl sm:text-4xl font-serif font-bold mb-4" data-key="menu_title">Nuestro Menú Irresistible</h2>
+<p class="text-gray-600 text-lg" data-key="menu_subtitle">Elige entre nuestros deliciosos dürums, platos combinados, falafel y menús.</p>
+</div>
+<!-- Filters -->
+<div class="flex justify-center gap-3 flex-wrap mb-12">
+<button class="cat-btn active bg-primary text-white px-5 py-2 rounded-full font-semibold shadow transition" onclick="filterMenu('all', this)" data-key="filter_all">Todos</button>
+<button class="cat-btn bg-white text-gray-700 border border-gray-300 px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition" onclick="filterMenu('durum', this)" data-key="filter_durum">Dürum</button>
+<button class="cat-btn bg-white text-gray-700 border border-gray-300 px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition" onclick="filterMenu('doner', this)" data-key="filter_doner">Doner Kebab</button>
+<button class="cat-btn bg-white text-gray-700 border border-gray-300 px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition" onclick="filterMenu('falafel', this)" data-key="filter_falafel">Falafel</button>
+<button class="cat-btn bg-white text-gray-700 border border-gray-300 px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition" onclick="filterMenu('menus', this)" data-key="filter_menus">Menús</button>
+<button class="cat-btn bg-white text-gray-700 border border-gray-300 px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition" onclick="filterMenu('plates', this)" data-key="filter_plates">Platos</button>
+</div>
+<!-- Menu Grid -->
+<div id="menuGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+<!-- Populated via JS -->
+</div>
+</section>
+<!-- Order & Cart Section -->
+<section id="order" class="py-20 px-6 lg:px-12 bg-white/60">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-12">
+<h2 class="text-3xl sm:text-4xl font-serif font-bold mb-4" data-key="order_title">Realiza tu Pedido Online</h2>
+<p class="text-gray-600" data-key="order_subtitle">Selecciona tus platos favoritos y recíbelos en casa o recógelos en el local.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+<!-- Cart -->
+<div class="bg-white p-8 rounded-2xl shadow-xl flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-serif font-bold mb-4 border-b pb-3" data-key="cart_title">Tu Pedido Actual</h3>
+<ul id="cartList" class="divide-y divide-gray-100 max-h-80 overflow-y-auto mb-6 pr-2">
+<li class="text-center text-gray-500 py-8" data-key="cart_empty">Tu carrito está vacío.</li>
+</ul>
+</div>
+<div>
+<div class="flex justify-between items-center text-xl font-bold border-t pt-4 mb-6">
+<span data-key="total">Total:</span>
+<span id="cartTotal" class="text-primary">0,00 €</span>
+</div>
+</div>
+</div>
+<!-- Checkout Form -->
+<div class="bg-white p-8 rounded-2xl shadow-xl">
+<h3 class="text-xl font-serif font-bold mb-4 border-b pb-3" data-key="checkout_title">Datos de Entrega</h3>
+<form onsubmit="submitOrder(event)" class="space-y-4">
+<div>
+<label class="block font-semibold text-sm mb-1" data-key="name">Nombre y Apellidos *</label>
+<input type="text" id="custName" required placeholder="Ej. Juan Pérez" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:outline-none">
+</div>
+<div>
+<label class="block font-semibold text-sm mb-1" data-key="phone">Teléfono / WhatsApp *</label>
+<input type="tel" id="custPhone" required placeholder="+34 600 000 000" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:outline-none">
+</div>
+<div>
+<label class="block font-semibold text-sm mb-1" data-key="order_type">Tipo de Pedido</label>
+<select id="orderType" onchange="toggleAddress()" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:outline-none">
+<option value="pickup" data-key="pickup">Recoger en Local (Mercado del Puerto)</option>
+<option value="delivery" data-key="delivery">A domicilio (Las Palmas)</option>
+</select>
+</div>
+<div id="addressBox" class="hidden">
+<label class="block font-semibold text-sm mb-1" data-key="address">Dirección de Entrega *</label>
+<input type="text" id="custAddress" placeholder="Calle, número, piso..." class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:outline-none">
+</div>
+<button type="submit" class="w-full bg-gradient-to-r from-primary to-orangeBrand text-white py-4 rounded-xl font-bold shadow-lg hover:opacity-95 transition flex justify-center items-center gap-2">
+<i class="fa-solid fa-paper-plane"></i> <span data-key="confirm_order">Confirmar Pedido</span>
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact & Map -->
+<section id="contact" class="py-20 px-6 lg:px-12 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-3xl font-serif font-bold mb-4" data-key="contact_title">Ubicación y Contacto</h2>
+<p class="text-gray-600 mb-6">C/ Albareda 76, Mercado del Puerto, 35008 Las Palmas de Gran Canaria</p>
+<p class="text-gray-600 mb-6">Teléfono / WhatsApp: <strong>+34 631 654 070</strong></p>
+<a href="tel:+34631654070" class="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-primary/90 transition"><i class="fa-solid fa-phone"></i> <span data-key="call_now">Llamar Ahora</span></a>
+</div>
+<div class="h-96 rounded-3xl overflow-hidden shadow-2xl">
+<iframe title="Laiba Kebab Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.8665!2d-15.4285!3d28.1385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjgu0KDQsNC70LAsIMKwMTUnNDIuNiJX!5e0!3m2!1ses!2ses!4v1680000000000!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-darkBrand text-white py-12 px-6 text-center text-sm opacity-80">
+<p>© 2026 Laiba Kebab. Todos los derechos reservados. Hecho con ❤️ en Gran Canaria.</p>
+</footer>
+<!-- JavaScript Application Logic -->
+<script>
+// Translations Dictionary
+const t = {
+es: {
+nav_home: "Inicio",
+nav_menu: "Menú",
+nav_order: "Pedir Online",
+nav_contact: "Contacto",
+open_now: "Abierto hoy 12:00 - 00:00 (Mercado del Puerto)",
+hero_title: "El mejor Kebab de Las Palmas",
+hero_desc: "Carne jugosa, salsas caseras y verduras frescas cada día en el corazón del Mercado del Puerto.",
+view_menu: "Ver Menú",
+order_now: "Pedir Online",
+rating_text: "4.8 Estrellas en Google (134+ reseñas)",
+fresh_daily: "Ingredientes frescos cada día",
+halal_style: "Estilo Halal de calidad",
+fast_service: "Servicio rápido y cercano",
+menu_title: "Nuestro Menú Irresistible",
+menu_subtitle: "Elige entre nuestros deliciosos dürums, platos combinados, falafel y menús.",
+filter_all: "Todos",
+filter_durum: "Dürum",
+filter_doner: "Doner Kebab",
+filter_falafel: "Falafel",
+filter_menus: "Menús",
+filter_plates: "Platos",
+add_btn: "Añadir al pedido",
+order_title: "Realiza tu Pedido Online",
+order_subtitle: "Selecciona tus platos favoritos y recíbelos en casa o recógelos en el local.",
+cart_title: "Tu Pedido Actual",
+cart_empty: "Tu carrito está vacío.",
+total: "Total:",
+checkout_title: "Datos de Entrega",
+name: "Nombre y Apellidos *",
+phone: "Teléfono / WhatsApp *",
+order_type: "Tipo de Pedido",
+pickup: "Recoger en Local (Mercado del Puerto)",
+delivery: "A domicilio (Las Palmas)",
+address: "Dirección de Entrega *",
+confirm_order: "Confirmar Pedido",
+contact_title: "Ubicación y Contacto",
+call_now: "Llamar Ahora"
+},
+en: {
+nav_home: "Home",
+nav_menu: "Menu",
+nav_order: "Order Online",
+nav_contact: "Contact",
+open_now: "Open today 12:00 - 00:00 (Mercado del Puerto)",
+hero_title: "The best Kebab in Las Palmas",
+hero_desc: "Juicy meat, homemade sauces, and fresh daily vegetables in the heart of Mercado del Puerto.",
+view_menu: "View Menu",
+order_now: "Order Now",
+rating_text: "4.8 Stars on Google (134+ reviews)",
+fresh_daily: "Fresh ingredients daily",
+halal_style: "Quality Halal-friendly style",
+fast_service: "Fast and friendly service",
+menu_title: "Our Irresistible Menu",
+menu_subtitle: "Choose from our delicious dürums, combo plates, falafel, and set menus.",
+filter_all: "All",
+filter_durum: "Durum",
+filter_doner: "Doner Kebab",
+filter_falafel: "Falafel",
+filter_menus: "Menus",
+filter_plates: "Plates",
+add_btn: "Add to order",
+order_title: "Place Your Online Order",
+order_subtitle: "Select your favorite dishes and get them delivered or pick them up.",
+cart_title: "Your Current Order",
+cart_empty: "Your cart is empty.",
+total: "Total:",
+checkout_title: "Delivery Details",
+name: "Full Name *",
+phone: "Phone / WhatsApp *",
+order_type: "Order Type",
+pickup: "Pickup at Store (Mercado del Puerto)",
+delivery: "Home Delivery (Las Palmas)",
+address: "Delivery Address *",
+confirm_order: "Confirm Order",
+contact_title: "Location & Contact",
+call_now: "Call Now"
+}
+};
+let currentLang = 'es';
+function setLang(lang) {
+currentLang = lang;
+document.getElementById('btnEs').style.opacity = lang === 'es' ? '1' : '0.6';
+document.getElementById('btnEn').style.opacity = lang === 'en' ? '1' : '0.6';
+document.querySelectorAll('[data-key]').forEach(el => {
+const k = el.getAttribute('data-key');
+if (t[lang][k]) el.textContent = t[lang][k];
+});
+renderMenu();
+renderCart();
+}
+// Menu Data
+const menuItems = [
+{ id: 1, cat: 'durum', name_es: 'Durum', name_en: 'Durum', desc_es: 'Ensalada, carne y salsas en wrap de trigo crujiente.', desc_en: 'Salad, meat and sauces in crispy wheat wrap.', price: 5.00, img: 'https://images.unsplash.com/photo-1561651823-34feb02255e7?auto=format&fit=crop&w=600&q=80' },
+{ id: 2, cat: 'menus', name_es: 'Menú Durum', name_en: 'Durum Menu', desc_es: 'Durum, bebida (lata) y patatas fritas doradas.', desc_en: 'Durum, drink (can) and golden french fries.', price: 7.50, img: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80' },
+{ id: 3, cat: 'plates', name_es: 'Plato Mixto', name_en: 'Mixed Plate', desc_es: 'Carne, ensalada, patata, salsas y bebida incluida.', desc_en: 'Meat, salad, potatoes, sauces and drink included.', price: 7.50, img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80' },
+{ id: 4, cat: 'falafel', name_es: 'Durum Falafel', name_en: 'Falafel Durum', desc_es: 'Croqueta vegetal artesanal, ensalada y salsas.', desc_en: 'Artisanal veggie croquette, salad and sauces.', price: 5.00, img: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=600&q=80' },
+{ id: 5, cat: 'menus', name_es: 'Menú Durum Falafel', name_en: 'Falafel Durum Menu', desc_es: 'Con patatas fritas crujientes y bebida.', desc_en: 'With crispy french fries and drink.', price: 7.50, img: 'https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=600&q=80' },
+{ id: 6, cat: 'doner', name_es: 'Doner Kebab en Pan Turco', name_en: 'Doner Kebab in Turkish Bread', desc_es: 'Con carne jugosa, ensalada fresca y salsas.', desc_en: 'With juicy meat, fresh salad and sauces.', price: 5.00, img: 'https://images.unsplash.com/photo-1633964913295-ceb43826e7c9?auto=format&fit=crop&w=600&q=80' },
+{ id: 7, cat: 'menus', name_es: 'Menú Doner Kebab', name_en: 'Doner Kebab Menu', desc_es: 'Pan turco, bebida refrescante y patatas fritas.', desc_en: 'Turkish bread, refreshing drink and french fries.', price: 7.50, img: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80' },
+{ id: 8, cat: 'plates', name_es: 'Alitas de Pollo', name_en: 'Chicken Wings', desc_es: 'Con ensalada, patatas, salsas y bebida.', desc_en: 'With salad, potatoes, sauces and drink.', price: 7.50, img: 'https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=600&q=80' }
+];
+let activeCat = 'all';
+function filterMenu(cat, btn) {
+activeCat = cat;
+document.querySelectorAll('.cat-btn').forEach(b => {
+b.classList.remove('bg-primary', 'text-white');
+b.classList.add('bg-white', 'text-gray-700');
+});
+btn.classList.remove('bg-white', 'text-gray-700');
+btn.classList.add('bg-primary', 'text-white');
+renderMenu();
+}
+function renderMenu() {
+const grid = document.getElementById('menuGrid');
+const items = activeCat === 'all' ? menuItems : menuItems.filter(i => i.cat === activeCat);
+grid.innerHTML = items.map(item => {
+const name = currentLang === 'en' ? item.name_en : item.name_es;
+const desc = currentLang === 'en' ? item.desc_en : item.desc_es;
+return <div class="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col hover:-translate-y-2 transition duration-300"> <img src="${item.img}" alt="${name}" class="h-48 w-full object-cover"> <div class="p-6 flex flex-col flex-grow"> <div class="flex justify-between items-start mb-2"> <h3 class="font-serif font-bold text-lg">${name}</h3> <span class="text-primary font-bold text-lg">${item.price.toFixed(2)} €</span> </div> <p class="text-gray-600 text-sm mb-6 flex-grow">${desc}</p> <button onclick="addToCart(${item.id}, '${name}', ${item.price})" class="w-full bg-darkBrand text-white py-2.5 rounded-xl font-semibold hover:bg-primary transition"> <i class="fa-solid fa-cart-plus"></i> ${t[currentLang].add_btn} </button> </div> </div>;
+}).join('');
+}
+// Cart State
+let cart = [];
+function addToCart(id, name, price) {
+const existing = cart.find(i => i.id === id);
+if (existing) existing.qty++;
+else cart.push({ id, name, price, qty: 1 });
+renderCart();
+showToast(${name} añadido);
+}
+function updateQty(id, change) {
+const item = cart.find(i => i.id === id);
+if (item) {
+item.qty += change;
+if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+}
+renderCart();
+}
+function renderCart() {
+const list = document.getElementById('cartList');
+const totalEl = document.getElementById('cartTotal');
+const badge = document.getElementById('cartCountBadge');
+const totalQty = cart.reduce((sum, i) => sum + i.qty, 0);
+badge.textContent = totalQty;
+if (cart.length === 0) {
+list.innerHTML = <li class="text-center text-gray-500 py-8">${t[currentLang].cart_empty}</li>;
+totalEl.textContent = '0,00 €';
+return;
+}
+let total = 0;
+list.innerHTML = cart.map(item => {
+total += item.price * item.qty;
+return <li class="py-3 flex justify-between items-center"> <div> <strong>${item.name}</strong><br> <small class="text-gray-500">${item.price.toFixed(2)} € x ${item.qty}</small> </div> <div class="flex items-center gap-3"> <button onclick="updateQty(${item.id}, -1)" class="w-7 h-7 bg-gray-200 rounded-full font-bold hover:bg-gray-300">-</button> <span>${item.qty}</span> <button onclick="updateQty(${item.id}, 1)" class="w-7 h-7 bg-gray-200 rounded-full font-bold hover:bg-gray-300">+</button> </div> </li>;
+}).join('');
+totalEl.textContent = total.toFix
